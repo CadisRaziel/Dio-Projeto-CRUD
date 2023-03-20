@@ -1,0 +1,18 @@
+#trocarmos o application.properties por application.xm
+#a unica diferença é a forma de escrever
+#o yml precisa manter um padrao de espaçamentos
+
+#url: jdbc:postgresql://localhost:5432/academia -> academia é o nome que sera dado ao banco de dados
+#username: postgres -> meu usuario padrado do postgres
+#show-sql: true -> para monstar no console as sql
+#ddl-auto: update -> a operação ddl no banco de dados quero que a cada vez que eu reinicie o servidor quero que faça um update(vai fica comparando se eu adicionei ou removi coisas)
+#?useTimezone=true&serverTimezone=UTC&useLegacyDate -> timezone (caso apareça alguma exception de timezone essa url trata)
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/academia?useTimezone=true&serverTimezone=UTC&useLegacyDate
+    username: postgres
+    password: rhythms
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
