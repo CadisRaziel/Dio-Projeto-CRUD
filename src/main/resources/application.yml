@@ -1,12 +1,19 @@
 #trocarmos o application.properties por application.xm
-#a unica diferença é a forma de escrever
-#o yml precisa manter um padrao de espaçamentos
+#a unica diferenï¿½a ï¿½ a forma de escrever
+#o yml precisa manter um padrao de espaï¿½amentos
 
-#url: jdbc:postgresql://localhost:5432/academia -> academia é o nome que sera dado ao banco de dados
+#url: jdbc:postgresql://localhost:5432/academia -> academia ï¿½ o nome que sera dado ao banco de dados
 #username: postgres -> meu usuario padrado do postgres
 #show-sql: true -> para monstar no console as sql
-#ddl-auto: update -> a operação ddl no banco de dados quero que a cada vez que eu reinicie o servidor quero que faça um update(vai fica comparando se eu adicionei ou removi coisas)
-#?useTimezone=true&serverTimezone=UTC&useLegacyDate -> timezone (caso apareça alguma exception de timezone essa url trata)
+#ddl-auto: update -> a operaï¿½ï¿½o ddl no banco de dados quero que a cada vez que eu reinicie o servidor quero que faï¿½a um update(vai fica comparando se eu adicionei ou removi coisas)
+#?useTimezone=true&serverTimezone=UTC&useLegacyDate -> timezone (caso apareï¿½a alguma exception de timezone essa url trata)
+##hibernate.format_sql: true -> pra organiza as querys no console
+
+##ddl-auto: drop -> apaga o banco
+
+##mudando a porta 8080 para 8081
+##server.port: 8081
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/academia?useTimezone=true&serverTimezone=UTC&useLegacyDate
@@ -16,3 +23,12 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+
+##Logs
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace

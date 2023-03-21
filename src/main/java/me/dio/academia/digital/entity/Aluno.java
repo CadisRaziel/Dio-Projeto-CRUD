@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Data //(lombok) -> com isso não preciso usar get e setter ali em baixo, o lombok ja faz automatico
+@Data //(lombok) -> com isso não preciso usar get e setter e hashCode ali em baixo, o lombok ja faz automatico
 @NoArgsConstructor //(lombok)-> Cria um construtor vazio, nao sendo necessario escreve-lo ali em baixo
 @AllArgsConstructor //(lombok) -> Cria um construtor que tem todos os atributos da classe, nao sendo necessario escreve-lo ali em baixo
 @Entity //-> falando pro databse que essa classe aluno sera uma tabela e seus atributos serao as colunas (ao colocar ela, ela pede uma chave primaria)
@@ -30,15 +30,10 @@ public class Aluno {
   @Id //-> Chave primaria
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private String nome;
-
-
   @Column(unique = true) // -> não pode haver cpfs iguais no banco de dados
   private String cpf;
-
   private String bairro;
-
   private LocalDate dataDeNascimento; //dataDeNascimento no banco de dados sera salvo como data_de_nascimento
 
   //RELAÇÂO ENTRE TABELAS
